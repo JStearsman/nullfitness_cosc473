@@ -1,0 +1,32 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h1.title{
+  color: Teal;
+  font-weight: bold;
+}
+
+.pull-right{
+  float: right;
+}
+
+label.bold{
+  font-weight: bold;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  /*display: none;*/
+  background-color: grey;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 5px;
+}

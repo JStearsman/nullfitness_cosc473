@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Profile Page</title>
+    <link rel='stylesheet' href='css/style.css' />
+    <link rel='stylesheet' href='css/bootstrap.css' />
+  </head>
+  <body>
+    <h1>Profile Page</h1>
+    <p>Welcome to your Profile Page</p>
+    <form id="formUserProfile" name="userprofile" method="post" action="/users/userprofile">
+      <div class="form-group">
+        <label class="bold">Please enter your name:</label>
+        <input type=text class="form-control" id="firstName" name="firstName" placeholder="First Name">
+      </div>
+      <div class="form-group">
+        <label class="bold">Please enter your height (in):</label>
+        <input type=number class="form-control" id="height" name="height" placeholder="Height (in)">
+      </div>
+      <div class="form-group">
+        <label class="bold">Please enter your weight (lb):</label>
+        <input type=number class="form-control" id="weight" name="weight" placeholder="Weight (lb)">
+      </div>
+      <div class="form-group">
+        <label class="bold">Please select your gender:</label>
+        <select class="form-control" id="gender" name="gender">
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </div>
+      <button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Null Fitness</title>
+    <link rel='stylesheet' href='css/bootstrap.css' />
+    <link rel='stylesheet' href='css/style.css' />
+    <script src='js/bootstrap.bundle.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+     <!-- Fixed navbar -->
+     <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+          <img src="/images/logo.png" width="60" height="25" class="d-inline-block align-top" alt="">
+          Null Fitness
+        </a>
+          <form class="form-inline mt-2 mt-md-0 ml-auto">
+            <a class="btn btn-primary" href="/logout" role="button">Logout</a>
+          </form>
+      </nav>
+    </header>
+
+    <!-- Main Page Display -->
+    <main role="main" class="container">
+      <h1 class="mt-5">Welcome <%= first_name %>!</h1>
+      <hr>
+      <div class="container-fluid">
+  	     <div class="row">
+           <!--WEIGHT FORM & CHART-->
+  		       <div class="col-md-7">
+               <div>
+                 <form action="/users/storeWeight" method="post" class="form-inline">
+                   <div class="form-group mb-2">
+                     <label class="text-dark px-2">Date</label>
+                     <input type="date" class="form-control" name="date" placeholder="mm/dd/yyyy">
+                   </div>
+                   <div class="form-group mx-sm-3 mb-2">
+                     <label class="text-dark px-2">Weight</label>
+                     <input type="number" class="form-control" name="weight"   placeholder="lbs.">
+                   </div>
+                   <button type="submit" class="btn btn-primary mb-2">Submit Weight</button>
+                   <!--<button type="submit" class="btn btn-danger mb-2" disabled data-toggle="tooltip" data-placement="right" title="Tooltip on right">Weight Submitted</button> -->
+                 </form>
+                 <canvas id="weightChart" width="400" height="225"></canvas>
+                 <!--OG Size: width="800" height="450" -->
+               </div>
+               <hr>
+               <p><b>Test Data due to error in dataX render</b></p>
+               <p><b>Date Data:</b> <%= dataX %> </p>
+               <p><b>Weight Data:</b> <%= dataY %> </p>
+               <hr>
+  		        </div>
+            <!--WORKOUT LIST-->
+  		        <div class="col-md-5 overflow-auto">
+                    <h1 class="mt-5"><%= workout_name %> Workout:</h1>
+                <% for (var j = 0; j < workouts.length; j++) {  %>
+                  <div class="h-50 px-5">
+                    <p style="float: left"><img src="/images/<%= workouts[j].workoutImg%>" width="150" height="150"></p>
+                    <h2> <%=workouts[j].workoutName%></h2>
+                    <h4>Reps: <%=workouts[j].workoutReps%></h4>
+                  </div>
+                <% } %>
+  		        </div>
+  	</div>
+    <form id="changeWorkoutOption" name="changeWorkoutOption" method="post" action="/users/changeWorkoutOption">
+    <div class="form-group">
+        <label class="bold">Please select your workout type to change routines:</label>
+        <select class="form-control" id="routineName" name="routineName" >
+          <option>Beginner</option>
+          <option>Intermediate</option>
+          <option>Advanced</option>
+          <option>Chest</option>
+          <option>Arms</option>
+          <option>Legs</option>
+          <option>Back</option>
+        </select>
+      </div>
+      <button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+    </main>
+  </body>
+</html>
+
+<script>
+
+  new Chart(document.getElementById("weightChart"), {
+    type: 'line',
+    data: {
+      labels: [<%= dataX %>],
+      datasets: [{
+          data: [<%= dataY %>],
+          label: "Weight",
+          borderColor: "#3e95cd",
+          fill: false
+        }
+      ]
+    }
+
+  });
+</script>

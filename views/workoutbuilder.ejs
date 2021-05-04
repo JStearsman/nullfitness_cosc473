@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Workout Builder</title>
+    <link rel='stylesheet' href='css/bootstrap.css' />
+    <link rel='stylesheet' href='css/style.css' />
+  </head>
+  <body>
+    <h1>Workout Builder</h1>
+    <form id="formWorkoutBuilder" name="workoutbuilder" method="post" action="/users/workoutbuilder">
+    <div class="form-group">
+        <label class="bold">Please select your workout day type</label>
+        <select class="form-control" id="routineName" name="routineName" >
+          <option>Beginner</option>
+          <option>Intermediate</option>
+          <option>Advanced</option>
+        </select>
+      </div>
+      <button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </body>
+</html>
