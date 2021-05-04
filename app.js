@@ -7,7 +7,7 @@ app.set('view engine', 'ejs')
 
 const expressSession = require('express-session')
 app.use(expressSession({
-	secret: 'v4Gf62SacJ8J7p3R44s',
+	secret: 'REPLACE SECRET HERE',
 	cookie: {
 		maxAge: (60 * 1000 * 5) //5 min timeout for testing
 	}
